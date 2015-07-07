@@ -243,7 +243,6 @@ class taxonomy_list_widget_plugin {
 
 			//Start list
 			$output = $before_list;
-
 			//Populate dropdown
 			$i = 1;
 			foreach( $terms as $term ) {
@@ -251,8 +250,10 @@ class taxonomy_list_widget_plugin {
 					continue;
 
 				//Open item
+				//die(var_dump($term->term_id));
 				$output .= $before_item;
-				$output .= '<a href="' . esc_url( get_term_link( (int)$term->term_id, $taxonomy ) ) . '"' . apply_filters( 'taxonomy_list_widget_link_rel', ( $rel == 'dofollow' ? ' rel="dofollow"' : ' rel="nofollow"' ), $id ) . '>';
+				//$output .= '<a href="' . esc_url( get_term_link( (int)$term->term_id, $taxonomy ) ) . '"' . apply_filters( 'taxonomy_list_widget_link_rel', ( $rel == 'dofollow' ? ' rel="dofollow"' : ' rel="nofollow"' ), $id ) . '>';
+				$output .= '<a href="?tag=basilikum+fisk+' . $term->slug . '"' . apply_filters( 'taxonomy_list_widget_link_rel', ( $rel == 'dofollow' ? ' rel="dofollow"' : ' rel="nofollow"' ), $id ) . '>';
 
 				//Tag name
 				$name = esc_attr( $term->name );
